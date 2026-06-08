@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Tech - Futsal</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("fotos/image.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        h1 { text-align: center; }
+        h2 { margin-top: 20px; }
+
+        p {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        body p:first-of-type {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Estilo dos botões de like/dislike */
+        .rating {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .rating button {
+            font-size: 20px;
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .like-btn { background-color: green; }
+        .dislike-btn { background-color: red; }
+
+        .rating span {
+            font-size: 18px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <p>Eu Blog Tech</p>
+        <h1>Vou compartilhar informações sobre futsal</h1>
+
+        <h2>INFORMAÇÕES BÁSICAS</h2>
+        <p>O futsal é um esporte semelhante ao futebol, mas jogado em quadra.</p>
+        <p>Cada equipe tem 5 jogadores em quadra (incluindo o goleiro).</p>
+        <p>As partidas normalmente são divididas em dois tempos de 20 minutos de tempo efetivo.</p>
+        <p>A bola é menor e tem menos quique do que a bola de futebol de campo.</p>
+        <p>O esporte exige muita velocidade, técnica, controle de bola e trabalho em equipe.</p>
+        <p>É organizado internacionalmente pela FIFA.</p>
+
+        <h2>Regras principais</h2>
+        <p>Substituições são ilimitadas.</p>
+        <p>Não existe impedimento.</p>
+        <p>Após um determinado número de faltas coletivas por período, a equipe adversária ganha um tiro livre direto sem barreira.</p>
+
+        <h2>Benefícios do futsal</h2>
+        <p>Melhora o condicionamento físico.</p>
+        <p>Desenvolve coordenação motora e reflexos.</p>
+        <p>Ajuda no trabalho em equipe e na tomada rápida de decisões.</p>
+
+        <h2>Dimensões da quadra</h2>
+        <p>Comprimento: entre 25 e 42 metros.</p>
+        <p>Largura: entre 16 e 25 metros.</p>
+        <p>As traves medem 3 metros de largura por 2 metros de altura.</p>
+
+        <h2>Fundamentos do futsal</h2>
+        <p>Passe – transferência da bola entre jogadores.</p>
+        <p>Domínio – controle da bola.</p>
+        <p>Drible – ultrapassar adversários com habilidade.</p>
+        <p>Condução – deslocamento com a bola.</p>
+        <p>Chute – finalização ao gol.</p>
+        <p>Marcação – ações defensivas para recuperar a posse da bola.</p>
+
+        <h2>Principais competições</h2>
+        <p>Copa do Mundo de Futsal da FIFA.</p>
+        <p>Copa América de Futsal.</p>
+        <p>Liga Nacional de Futsal.</p>
+
+        <!-- Sistema de avaliação -->
+        <div class="rating">
+            <button class="like-btn">👍 Like</button> <span id="like-count">0</span>
+            <button class="dislike-btn">👎 Dislike</button> <span id="dislike-count">0</span>
+        </div>
+
+    </div>
+
+    <script>
+        // Inicializa os contadores a partir do localStorage
+        const likeCountEl = document.getElementById('like-count');
+        const dislikeCountEl = document.getElementById('dislike-count');
+
+        let likes = parseInt(localStorage.getItem('likes')) || 0;
+        let dislikes = parseInt(localStorage.getItem('dislikes')) || 0;
+
+        likeCountEl.textContent = likes;
+        dislikeCountEl.textContent = dislikes;
+
+        // Funções para atualizar e salvar no localStorage
+        document.querySelector('.like-btn').addEventListener('click', () => {
+            likes++;
+            likeCountEl.textContent = likes;
+            localStorage.setItem('likes', likes);
+        });
+
+        document.querySelector('.dislike-btn').addEventListener('click', () => {
+            dislikes++;
+            dislikeCountEl.textContent = dislikes;
+            localStorage.setItem('dislikes', dislikes);
+        });
+    </script>
+</body>
+</html>
